@@ -3,7 +3,7 @@ const findAuthorById = (authors, id) => {
   return authors.find(author => author.id === id)
 }
 
-function checkAuthorById(){
+function checkAuthorById(authors){
   console.log(findAuthorById(authors, 0))
 }
 
@@ -50,6 +50,7 @@ const getBorrowersForBook = (book, accounts) => {
     let account = accounts.find((account) => account.id === borrow.id);
       return {...borrow, ...account};}).slice(0, 10);
 }
+
 
 checkAuthorById()
 

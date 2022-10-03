@@ -1,13 +1,15 @@
 const findAccountById = (accounts, id) => {
-  return accounts.find(person => person.id === id); 
+  let foundId = accounts.find((account) => account.id === id);
+ return foundId;
 }
-
 const sortAccountsByLastName = accounts => {
 /* The .sort() method sorts the accounts array based on our set condition*/
   return accounts.sort((accountA, accountB) => accountA.name.last > accountB.name.last ? 1 : -1);
 }
 
-
+function innerFunction(accounts){
+  return accounts.sort((accountA, accountB) => accountA.name.last > accountB.name.last ? 1 : -1);
+}
 const getTotalNumberOfBorrows = (account, books) => {
   // create a variable for the value for id essentially allowing you to call the value specifically.
   const { id: accId } = account;
