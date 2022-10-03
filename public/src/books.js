@@ -3,6 +3,10 @@ const findAuthorById = (authors, id) => {
   return authors.find(author => author.id === id)
 }
 
+function checkAuthorById(){
+  console.log(findAuthorById(authors, 0))
+}
+
 const findBookById = (books, id) => {
 /*The .find() method will look through the books array and returns an object with the id that matches the input*/
   return books.find(book => book.id === id)
@@ -46,6 +50,8 @@ const getBorrowersForBook = (book, accounts) => {
     let account = accounts.find((account) => account.id === borrow.id);
       return {...borrow, ...account};}).slice(0, 10);
 }
+
+checkAuthorById()
 
 module.exports = {
   findAuthorById,
