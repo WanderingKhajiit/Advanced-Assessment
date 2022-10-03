@@ -28,4 +28,4 @@ Question 8:
   Note two things that the student did well.
 
 You will find all files necessary to test the assessed functions and plenty of pseudocode (i tried to be somewhat original but alot of pseudocode looks the same :( )
-This readme will be useless
+
