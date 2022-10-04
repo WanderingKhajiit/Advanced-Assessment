@@ -3,10 +3,6 @@ const findAuthorById = (authors, id) => {
   return authors.find(author => author.id === id)
 }
 
-function checkAuthorById(authors){
-  console.log(findAuthorById(authors, 0))
-}
-
 const findBookById = (books, id) => {
 /*The .find() method will look through the books array and returns an object with the id that matches the input*/
   return books.find(book => book.id === id)
@@ -27,18 +23,22 @@ const partitionBooksByBorrowedStatus = books => {
   return partition;
 }
 */
+//
+
+function booksCallBack(books) { 
+  return books.filter((book) =>
+    book.borrows.some((borrow) => borrow.returned === false)
+ );}
 /*The .filter() method will look through the books array and compile a new array that meets our condition.*/
 const partitionBooksByBorrowedStatus = books => {
    let booksReturned = books.filter((book) =>
      book.borrows.every((borrow) => borrow.returned === true)
  );
 /*Within the filter method we will use a helper function with the every method that will check if our condition is true within the borrow array.*/
- 
+  let booksBorrowed = booksCallBack(books);
 /*The .filter() method will look through the books array and create a new 
  array that meets our condition.*/
-  let booksBorrowed = books.filter((book) =>
-    book.borrows.some((borrow) => borrow.returned === false)
- );
+  
  /*Within the filter method we will use a helper function with the .some() method that will check if our condition is true within the borrow array.*/
   
   let finalArray = [[...booksBorrowed], [...booksReturned]];
@@ -50,9 +50,6 @@ const getBorrowersForBook = (book, accounts) => {
     let account = accounts.find((account) => account.id === borrow.id);
       return {...borrow, ...account};}).slice(0, 10);
 }
-
-
-checkAuthorById()
 
 module.exports = {
   findAuthorById,
